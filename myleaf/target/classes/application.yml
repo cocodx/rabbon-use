@@ -8,7 +8,7 @@ spring:
       password: password
       url: jdbc:mysql://localhost:3306/leaf?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong
       initial-size: 8
-      max-active: 16
+      max-active: 8
       min-idle: 1
       max-wait: 60000
 

@@ -10,4 +10,8 @@ public interface LeafAllocMapper {
     void insert(LeafAlloc leafAlloc);
 
     int selectCountByKey(@Param("key") String key);
+
+    LeafAlloc selectEntityByKey(@Param("key") String key);
+
+    void update(LeafAlloc leafAlloc);
 }

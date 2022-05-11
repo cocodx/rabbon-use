@@ -18,4 +18,17 @@
         values(#{key}, #{maxId}, #{step}, #{description},NOW())
     </insert>
 
+    <select id="selectCountByKey" resultType="int">
+        select count(1) from leaf_alloc where biz_tag=#{key}
+    </select>
+
+    <select id="selectEntityByKey" resultType="leafAlloc">
+        select * from leaf_alloc where biz_tag = #{key}
+    </select>
+
+    <update id="update" parameterType="leafAlloc">
+        update leaf_alloc set max_id = max_id + {step} where biz_tag=#{key}
+        and updateTime = NOW()
+    </update>
+
 </mapper>
