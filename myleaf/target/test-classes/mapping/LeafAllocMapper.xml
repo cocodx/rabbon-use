@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ribbon.use.dao.LeafAllocMapper">
+
+    <resultMap id="LeafMap" type="LeafAlloc">
+        <result column="biz_tag" property="key"/>
+        <result column="max_id" property="maxId"/>
+        <result column="step" property="step"/>
+        <result column="description" property="description"/>
+        <result column="updateTime" property="updateTime" />
+    </resultMap>
+
+    <insert id="insert" parameterType="LeafAlloc">
+        insert into leaf_alloc (biz_tag, max_id, step, description,update_time)
+        values(#{key}, #{maxId}, #{step}, #{description},NOW())
+    </insert>
+
+</mapper>

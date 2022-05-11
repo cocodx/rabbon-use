@@ -1,0 +1,12 @@
+*.class
+
+target/
+.idea
+classes/
+
+myleaf/target/
+
+
+myleaf/target/classes/application.yml
+myleaf/target/classes/mapping/LeafAllocMapper.xml
+myleaf/target/test-classes/mapping/LeafAllocMapper.xml

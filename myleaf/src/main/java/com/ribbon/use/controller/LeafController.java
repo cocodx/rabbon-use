@@ -2,8 +2,10 @@ package com.ribbon.use.controller;
 
 import com.ribbon.use.dao.LeafAllocMapper;
 import com.ribbon.use.entity.LeafAlloc;
+import com.ribbon.use.model.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -12,6 +14,13 @@ public class LeafController {
 
     @Autowired
     private LeafAllocMapper leafAllocMapper;
+
+    @RequestMapping("/get")
+    public Object getTagId(@RequestParam("key")String key){
+        CommonResult commonResult = new CommonResult();
+
+        return commonResult;
+    }
 
     @RequestMapping("/insert")
     public String insert(){
