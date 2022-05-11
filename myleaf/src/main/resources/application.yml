@@ -1,0 +1,28 @@
+server:
+  port: 6080
+
+spring:
+  datasource:
+    druid:
+      username: root
+      password: password
+      url: jdbc:mysql://localhost:3306/leaf?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong
+      initial-size: 8
+      max-active: 16
+      min-idle: 1
+      max-wait: 60000
+
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*,"
+
+      stat-view-servlet:
+        enabled: true
+        login-username: admin
+        login-password: admin
+        reset-enable: false
+        url-pattern: /druid/
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.ribbon.use.entity
