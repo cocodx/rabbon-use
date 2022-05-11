@@ -1,0 +1,11 @@
+server:
+  # 启动两个main函数，一个是8965，一个是8964
+  port: 8965
+
+spring:
+  application:
+    name: ribbon-produce
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
