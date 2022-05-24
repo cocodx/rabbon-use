@@ -5,7 +5,14 @@ server:
 spring:
   application:
     name: ribbon-produce
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:10086/eureka
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://127.0.0.1:10086/eureka
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.125.60:8848
+        # 临时节点，持久节点（信息存到磁盘里）
+        ephemeral: false
