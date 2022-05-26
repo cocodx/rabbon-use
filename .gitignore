@@ -10,3 +10,9 @@ myleaf/target/
 myleaf/target/classes/application.yml
 myleaf/target/classes/mapping/LeafAllocMapper.xml
 myleaf/target/test-classes/mapping/LeafAllocMapper.xml
+.idea/compiler.xml
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/compiler.xml
+.idea/encodings.xml
+ribbon-produce/target/classes/application.yml

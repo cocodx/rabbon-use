@@ -8,6 +8,7 @@
         <module>ribbon-produce</module>
         <module>ribbon-consumer</module>
         <module>myleaf</module>
+        <module>ribbon-gateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
