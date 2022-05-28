@@ -9,6 +9,17 @@ spring:
     gateway:
       routes:
         - id: user-service
-          uri: http://localhost:8965/
+          uri: http://localhost:8965/produce/get
           predicates:
-          - Path=/produce/get
+#          - Path=/produce/get
+            # 匹配在指定的日期时间之后发生的请求 入参是ZonedDateTime类型
+#          - After=2022-05-28T03:30:46.136+08:00[Asia/Shanghai]
+            - Cookie=userName, fox
+        - id: cookie-service
+          uri: http://localhost:8965
+          predicates:
+#            - Cookie=userName, fox
+#            - Header=X-Request-Id, \d+
+#            - Path=/produce/**
+            - name: CheckAuth
+            - CheckAuth=fox
