@@ -23,3 +23,9 @@ spring:
 #            - Path=/produce/**
             - name: CheckAuth
             - CheckAuth=fox
+
+        - id: filter-service
+          uri: http://localhost:8965
+          predicates:
+          filters:
+            - AddRequestHeader=X-Request-color, red #添加请求头

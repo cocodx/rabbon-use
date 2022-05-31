@@ -9,6 +9,7 @@
         <module>ribbon-consumer</module>
         <module>myleaf</module>
         <module>ribbon-gateway</module>
+        <module>micro-oauth2-auth</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -43,6 +44,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.24</version>
+                <scope>provided</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

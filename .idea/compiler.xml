@@ -11,11 +11,13 @@
         <module name="myleaf" />
         <module name="ribbon-consumer" />
         <module name="ribbon-gateway" />
+        <module name="micro-oauth2-auth" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="micro-oauth2-auth" options="-parameters" />
       <module name="myleaf" options="-parameters" />
       <module name="ribbon-consumer" options="-parameters" />
       <module name="ribbon-eureka-server" options="-parameters" />
