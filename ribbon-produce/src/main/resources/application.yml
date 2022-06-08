@@ -10,9 +10,12 @@ spring:
 #    service-url:
 #      defaultZone: http://127.0.0.1:10086/eureka
 
-#  cloud:
-#    nacos:
-#      discovery:
-#        server-addr: 192.168.125.60:8848
-#        # 临时节点，持久节点（信息存到磁盘里）
-#        ephemeral: false
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+
+      config:
+        server-addr: 127.0.0.1:8848
