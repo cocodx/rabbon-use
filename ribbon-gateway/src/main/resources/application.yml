@@ -7,25 +7,25 @@ spring:
 
   cloud:
     gateway:
-      routes:
-        - id: user-service
-          uri: http://localhost:8965/produce/get
-          predicates:
-#          - Path=/produce/get
-            # 匹配在指定的日期时间之后发生的请求 入参是ZonedDateTime类型
-#          - After=2022-05-28T03:30:46.136+08:00[Asia/Shanghai]
-            - Cookie=userName, fox
-        - id: cookie-service
-          uri: http://localhost:8965
-          predicates:
-#            - Cookie=userName, fox
-#            - Header=X-Request-Id, \d+
-#            - Path=/produce/**
-            - name: CheckAuth
-            - CheckAuth=fox
-
-        - id: filter-service
-          uri: http://localhost:8965
-          predicates:
+      routes:  #定义路由规则
+        - id: ribbon-produce-service1   #路由id
+          uri: http://localhost:8965  #路由地址 根地址
+          predicates:                  #断言规则
+            - Path=/produce/**, /api-gateway/**
           filters:
-            - AddRequestHeader=X-Request-color, red #添加请求头
+            - name: RequestRateLimiter #限流器
+              args:
+                redis-rate-limiter.replenishRate: 1 #令牌桶每秒填充速率
+                redis-rate-limiter.burstCapacity: 2 #令牌桶总容量
+                redis-rate-limiter.requestedTokens: 1 #一个请求需要消费的令牌数
+                key-resolver: "#{@pathKeyResolver}"
+  redis:
+    host: localhost
+    port: 6379
+    connection-timeout: 10s
+    lettuce:
+      pool:
+        max-active: 8 #连接池最大连接数 默认 8
+        max-wait: 200s #连接池最大阻塞等待时间 默认-1
+        max-idle: 8 #连接池中最大空闲数 默认8
+        min-idle: 0 #连接池中最小空闲数 默认0

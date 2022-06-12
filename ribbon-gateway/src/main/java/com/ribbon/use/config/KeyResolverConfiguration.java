@@ -1,0 +1,19 @@
+package com.ribbon.use.config;
+
+import org.springframework.cloud.gateway.filter.ratelimit.KeyResolver;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import reactor.core.publisher.Mono;
+
+/**
+ * @author amazfit
+ * @date 2022-06-12 下午1:46
+ **/
+@Configuration
+public class KeyResolverConfiguration {
+
+    @Bean
+    public KeyResolver pathKeyResolver(){
+        return exchange -> Mono.just(exchange.getRequest().getURI().getPath()); //URI限流
+    }
+}
