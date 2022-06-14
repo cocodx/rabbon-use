@@ -10,3 +10,11 @@ spring:
     sentinel:
       transport:
         dashboard: localhost:8080 #设置Sentinel的连接控制台的主机地址和端口
+      datasource:
+        ds:
+          nacos:
+            server-addr: localhost:8848
+            group-id: DEFAULT_GROUP
+            rule-type: flow
+            data-id: sentinel1234
+            data-type: json
