@@ -1,0 +1,12 @@
+server:
+  port: 3434
+  servlet:
+    context-path: "/"
+
+spring:
+  application:
+    name: rabbon-sentinel #设置应用名称
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080 #设置Sentinel的连接控制台的主机地址和端口

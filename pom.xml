@@ -10,6 +10,7 @@
         <module>myleaf</module>
         <module>ribbon-gateway</module>
         <module>micro-oauth2-auth</module>
+        <module>rabbon-sentinel</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
